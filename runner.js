@@ -149,34 +149,13 @@ function forEachAssertion(assertions, callback) {
 
 
 
-//
-// STYLUS
-//
-
-// fix stylus
-function stylus(string, config) {
-  // First through the whole config at stylus, it should ignore stuff it cannot handle
-  // like use/import/include etc?
-
-  var thisStylus = new Stylus(string, config)
-
-  // reset paths
-  // optimisation
-  thisStylus.options.paths = []
-
-  // Enumerate over the config options that the stylus API only makes available by methods
-  _.each(['use', 'import', 'include'], function(option){
-    if (config[option])  _.each(arrayify(config[option]), thisStylus[option], thisStylus)
-  })
-
-  return thisStylus;
-}
 
 
 function renderStylus(stylusCode, config, callback) {
+  var stylus = new Stylus(stylusCode, config)
   var CleanCSS = new cleanCSS(cleanCSSOptions)
 
-  stylus(stylusCode, config)
+  stylus
     .render(function(err, cssFromStylus) {
       if (err) throw err
       callback(CleanCSS.minify(cssFromStylus).styles)
