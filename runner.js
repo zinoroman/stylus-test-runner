@@ -50,7 +50,7 @@ function extractTestFromString(string) {
   if (test.match(/@expect/)) {
     var stylusAndCss = test.split(/.*@expect.*/).map(trimNewlines)
       , CleanCSS = new cleanCSS()
-      , expectedCss = CleanCSS.minify(stylusAndCss[1])
+      , expectedCss = CleanCSS.minify(stylusAndCss[1]).styles
 
     return {
       assertion: assertion,
@@ -175,7 +175,7 @@ function renderStylus(stylusCode, config, callback) {
   stylus(stylusCode, config)
     .render(function(err, cssFromStylus) {
       if (err) throw err
-      callback(CleanCSS.minify(cssFromStylus))
+      callback(CleanCSS.minify(cssFromStylus).styles)
     })
 }
 

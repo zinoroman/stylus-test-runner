@@ -9,11 +9,11 @@
     "url": "git://github.com:timjgleeson/stylus-test-runner.git"
   },
   "dependencies": {
-    "mocha": "~1.17.1",
-    "stylus": "~0.42.0",
-    "clean-css": "~2.1.1",
-    "should": "~3.1.2",
-    "lodash": "~2.4.1",
-    "glob": "~3.2.8"
+    "clean-css": "^3.4.23",
+    "glob": "^7.1.1",
+    "lodash": "^4.17.4",
+    "mocha": "^3.2.0",
+    "should": "^11.1.2",
+    "stylus": "^0.54.5"
   }
 }
