@@ -6,7 +6,7 @@
   "author": "Tim Gleeson",
   "repository": {
     "type": "git",
-    "url": "git://github.com:timjgleeson/stylus-test-runner.git"
+    "url": "https://github.com/zinoroman/stylus-test-runner"
   },
   "dependencies": {
     "clean-css": "^3.4.23",
